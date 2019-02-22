@@ -1,5 +1,5 @@
-import React from 'react';
-import Tab from './Tab';
+import React from "react"
+import Tab from "./Tab"
 const Tabs = props => {
   return (
     <div className="tabs">
@@ -9,8 +9,8 @@ const Tabs = props => {
             give the tab component a `selectTabHandler`, the `selectedTab`, and the `tab` itself as props*/}
       </div>
     </div>
-  );
-};
+  )
+}
 
 // Make sure to use PropTypes to validate your types!
-export default Tabs;
+export default Tabs
