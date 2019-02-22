@@ -4,7 +4,12 @@ import Tabs from "./Tabs"
 import Cards from "./Cards"
 
 // Importing our tab and card data. No need to change anything here.
-import { tabData, cardData } from "../../data"
+import { tabData, cardData as _cardData } from "../../data"
+
+const hash = str =>
+  Array.from(str)
+    .map(char => char.charCodeAt().toString(16))
+    .join("")
 
 export default class Content extends Component {
   constructor(props) {
@@ -17,6 +22,10 @@ export default class Content extends Component {
   }
 
   componentDidMount() {
+    const cardData = _cardData.map(card => ({
+      ...card,
+      id: hash(card.img + card.headline)
+    }))
     // Once the component has mounted, get the data and reflect that data on the state.
     this.setState(() => ({
       tabs: tabData,
