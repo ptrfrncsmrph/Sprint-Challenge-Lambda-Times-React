@@ -29,9 +29,22 @@ Look through the application code. If you have the old Lambda Times (Applied Jav
 ## Self-Study/Essay Questions
 
 - [ ] What are PropTypes used for? Please describe why it's important to type check our data in JavaScript.
+
+PropTypes are a way of type-checking the props that you are passing to your components. Since JS is dynamically typed, it's a good idea to include a `propTypes` property on your component (using the `prop-types` package to define the types) that specifies what it expects to receive as props. This acts as a sort of documentation for your component and ensures that the users of your component (including yourself) are correctly passing the required props to make it work as expected.
+
 - [ ] Describe a life-cycle event in React?
+
+React components go through a "life-cycle" in the following order: mounting, updating, and unmounting. Mounting is when the component is initialized (using the `constructor` in a class component) and rendered to the DOM (using the `render` method of the class, or the function body of the function component), and this triggers the optional `componentDidMount` hook. The updating happens whenever the component is passed new props (which can be opted out of by using `shouldComponentUpdate`) or when `setState` is called. Unmounting happens when the component is removed from the DOM, at this point `componentWillUnmount` will trigger, usually to handle any clean up of event listeners for example.
+
 - [ ] Explain the details of a Higher Order Component?
+
+A higher order component is a function that takes a React component as argument and returns a React component. This is useful for adding "mix-in" style functionality (from a third party library for example) to an existing app or component.
+
 - [ ] What are three different ways to style components in React? Explain some of the benefits of each.
+
+1. *Inline styles* are good for when you just need to style a few attributes, especially if you want to use JavaScript to dynamically affect the styling.
+2. *CSS modules* are typically used to "loosely" couple the component module with the relevant parts of CSS that style it. These are traditional, standalone CSS files that are typically colocated with the JS module in the file system and imported into the JS. The benefit is that its still "just CSS", so no learning curve, but you lose out on being able to manipulate styles with JavaScript.
+3. *CSS-in-JS* is the strategy of `styled-components` and related libraries. This tightly couples the CSS in the actual JS file itself. The syntax is identical to "enhanced" or "next-generation" CSS (you can use features such as nesting from SCSS/LESS). A benefit is that, if you don't use the JS component, you won't end up shipping unnecessary CSS to the client.
 
 ## Project Setup
 
