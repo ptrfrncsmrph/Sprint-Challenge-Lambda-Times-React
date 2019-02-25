@@ -29,36 +29,49 @@ Look through the application code. If you have the old Lambda Times (Applied Jav
 ## Self-Study/Essay Questions
 
 - [ ] What are PropTypes used for? Please describe why it's important to type check our data in JavaScript.
+
+PropTypes are a way of type-checking the props that you are passing to your components. Since JS is dynamically typed, it's a good idea to include a `propTypes` property on your component (using the `prop-types` package to define the types) that specifies what it expects to receive as props. This acts as a sort of documentation for your component and ensures that the users of your component (including yourself) are correctly passing the required props to make it work as expected.
+
 - [ ] Describe a life-cycle event in React?
+
+React components go through a "life-cycle" in the following order: mounting, updating, and unmounting. Mounting is when the component is initialized (using the `constructor` in a class component) and rendered to the DOM (using the `render` method of the class, or the function body of the function component), and this triggers the optional `componentDidMount` hook. The updating happens whenever the component is passed new props (which can be opted out of by using `shouldComponentUpdate`) or when `setState` is called. Unmounting happens when the component is removed from the DOM, at this point `componentWillUnmount` will trigger, usually to handle any clean up of event listeners for example.
+
 - [ ] Explain the details of a Higher Order Component?
+
+A higher order component is a function that takes a React component as argument and returns a React component. This is useful for adding "mix-in" style functionality (from a third party library for example) to an existing app or component.
+
 - [ ] What are three different ways to style components in React? Explain some of the benefits of each.
+
+1. *Inline styles* are good for when you just need to style a few attributes, especially if you want to use JavaScript to dynamically affect the styling.
+2. *CSS modules* are typically used to "loosely" couple the component module with the relevant parts of CSS that style it. These are traditional, standalone CSS files that are typically colocated with the JS module in the file system and imported into the JS. The benefit is that its still "just CSS", so no learning curve, but you lose out on being able to manipulate styles with JavaScript.
+3. *CSS-in-JS* is the strategy of `styled-components` and related libraries. This tightly couples the CSS in the actual JS file itself. The syntax is identical to "enhanced" or "next-generation" CSS (you can use features such as nesting from SCSS/LESS). A benefit is that, if you don't use the JS component, you won't end up shipping unnecessary CSS to the client.
 
 ## Project Setup
 
 Follow these steps to set up your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your project manager as collaborator on Github.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
-- [ ] From within the `lambdatimes` folder run `yarn` and then `yarn start`. This will open your locally hosted application in your browser. Once you are ready move onto the next steps.
-- [ ] Inside the `Content` folder you will find all 5 components that make up the content of the application. The flow goes like this: `Content > Tabs > Tab` and `Content > Cards > Card`. Follow the directions in the `Content` component to get your data ready.
+- [X] Create a forked copy of this project.
+- [X] Add your project manager as collaborator on Github.
+- [X] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [X] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [X] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [X] Push commits: git push origin `<firstName-lastName>`.
+- [X] From within the `lambdatimes` folder run `yarn` and then `yarn start`. This will open your locally hosted application in your browser. Once you are ready move onto the next steps.
+- [X] Inside the `Content` folder you will find all 5 components that make up the content of the application. The flow goes like this: `Content > Tabs > Tab` and `Content > Cards > Card`. Follow the directions in the `Content` component to get your data ready.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repository). **Please don't merge your own pull request**
-- [ ] Add your project manager as a reviewer on the pull-request
-- [ ] Your project manager will count the project as complete by merging the branch back into master.
+- [X] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repository). **Please don't merge your own pull request**
+- [X] Add your project manager as a reviewer on the pull-request
+- [X] Your project manager will count the project as complete by merging the branch back into master.
 
 ## Minimum Viable Product
 
-- [ ] Go through the `Tabs`, `Tab`, `Cards`, and `Card` components following the instructions, and passing data and props to get the tabs and cards to appear on the screen.
-- [ ] Once the Tabs and Cards are rendering to the screen complete the `changeSelected` and `filterCards` functions in the `Content` component.
-- [ ] You should now be able to filter cards using your tabs!
-- [ ] Make sure all of your props being passed are validated using PropTypes.
-- [ ] Find the `TopBar` and `Header` components. Convert these two components to Styled Components. You should not have any `className` props when you are finished.
+- [X] Go through the `Tabs`, `Tab`, `Cards`, and `Card` components following the instructions, and passing data and props to get the tabs and cards to appear on the screen.
+- [X] Once the Tabs and Cards are rendering to the screen complete the `changeSelected` and `filterCards` functions in the `Content` component.
+- [X] You should now be able to filter cards using your tabs!
+- [X] Make sure all of your props being passed are validated using PropTypes.
+- [X] Find the `TopBar` and `Header` components. Convert these two components to Styled Components. You should not have any `className` props when you are finished.
 
 ## Stretch Challenge
 
